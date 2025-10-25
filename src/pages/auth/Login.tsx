@@ -3,7 +3,7 @@ import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../firebase/config";
 import { useNavigate, Link } from "react-router-dom";
 import { Eye, EyeOff, Mail, Lock, ArrowRight } from "lucide-react";
-import wn from "../../assets/logo.png";
+// import wn from "../../assets/logo.png";
 
 const Login = () => {
   const [formData, setFormData] = useState({
@@ -60,11 +60,12 @@ const Login = () => {
         {/* Header */}
         <div className="text-center mb-8">
           <div className="w-16 h-16 bg-neutral-200 mt-5  dark:bg-white rounded-2xl flex items-center justify-center mx-auto mb-4 p-2">
-            <img 
+            {/* <img 
               src={wn} 
               alt="Wants & Needs" 
               className="w-full h-full object-contain"
-            />
+            /> */}
+            <span className="text-2xl font-bold text-black dark:text-white">W&N</span>
           </div>
           <h1 className="text-3xl font-black text-black dark:text-white mb-2">
             Welcome Back

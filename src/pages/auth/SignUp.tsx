@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { signupUser } from "../../firebase/auth";
 import { Eye, EyeOff, User, Mail, Lock, ArrowRight } from "lucide-react";
-import wn from "../../assets/logo.png";
+// import wn from "../../assets/logo.png";
 
 const SignUp = () => {
   const [formData, setFormData] = useState({
@@ -75,7 +75,8 @@ const SignUp = () => {
         <div className="text-center mb-8">
           <div className="w-16 h-16 bg-neutral-300 mt-5 p-2 dark:bg-white rounded-2xl flex items-center justify-center mx-auto mb-4">
             <span className="text-2xl font-bold text-white dark:text-black">
-                <img src={wn} alt="" />
+                {/* <img src={wn} alt="" /> */}
+                W&N
             </span>
           </div>
           <h1 className="text-3xl font-black text-black dark:text-white mb-2">
