@@ -1,6 +1,6 @@
 // import React from 'react';
 import { motion } from 'framer-motion';
-import wn from '../assets/logo.png';
+import logo from "../assets/Logo.png";
 
 const WantsAndNeedsLoader = () => {
   return (
@@ -15,7 +15,7 @@ const WantsAndNeedsLoader = () => {
           }}
         >
           <img
-            src={wn}
+            src={logo}
             alt="Wants & Needs"
             className="h-20 w-20 object-contain mx-auto mb-4 filter brightness-0 invert"
           />
