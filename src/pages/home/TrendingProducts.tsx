@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { ArrowRight, Heart, ShoppingBag } from 'lucide-react';
+import { ArrowRight, Heart } from 'lucide-react';
 import { db } from "../../firebase/config";
 import { collection, getDocs } from "firebase/firestore";
 

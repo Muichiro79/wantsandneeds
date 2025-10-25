@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import  { useState, useEffect } from "react";
 import { signOut, onAuthStateChanged } from "firebase/auth";
 import { auth, db } from "../../firebase/config";
 import { useNavigate } from "react-router-dom";
@@ -6,8 +6,7 @@ import { collection, query, where, getDocs, doc, getDoc, deleteDoc } from "fireb
 import { 
   User, 
   ShoppingBag, 
-  Heart, 
-  MapPin, 
+  Heart,  
   Settings, 
   LogOut,
   Package,
@@ -191,15 +190,6 @@ export default function Profile() {
     } catch {
       return "Invalid date";
     }
-  };
-
-  // Get display name - prioritize username, then fullName, then displayName, then email
-  const getDisplayName = () => {
-    if (userData?.username) return `@${userData.username}`;
-    if (userData?.fullName) return userData.fullName;
-    if (userData?.displayName) return userData.displayName;
-    if (user?.displayName) return user.displayName;
-    return "User";
   };
 
   // Get the main name for the profile header

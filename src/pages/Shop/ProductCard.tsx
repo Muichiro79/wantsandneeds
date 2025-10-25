@@ -1,5 +1,5 @@
 // src/pages/shop/ProductCard.tsx
-import React, { useState } from "react";
+import  { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 interface ProductProps {
@@ -126,7 +126,7 @@ export default function ProductCard({ id, name, price, images, colors }: Product
         </div>
 
         {/* Hover Action Indicator */}
-        <div className={`mt-4 text-center py-2 bg-gradient-to-r from-black/5 to-transparent dark:from-white/5 rounded-lg transform transition-all duration-500 ${
+        <div className={`mt-4 text-center py-2 bg-linear-to-r from-black/5 to-transparent dark:from-white/5 rounded-lg transform transition-all duration-500 ${
           isHovered ? 'translate-y-0 opacity-100' : 'translate-y-2 opacity-0'
         }`}>
           <span className="text-sm font-semibold text-black dark:text-white">Click to View Details</span>

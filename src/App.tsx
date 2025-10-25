@@ -26,12 +26,9 @@ export default function App() {
 
   // Show loader on route changes
   useEffect(() => {
-    const handleStart = () => setIsLoading(true);
-    const handleComplete = () => {
-      setTimeout(() => setIsLoading(false), 1000);
-    };
-
     // You can add route change listeners here if using React Router navigation events
+    // For now, we'll remove the unused functions since you mentioned
+    // you'll add route change listeners later
 
     return () => {
       // Cleanup listeners

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import  { useEffect, useState } from "react";
 import { getProducts } from "../../firebase/db";
 import ProductCard from "./ProductCard";
 import SortDropdown from "./SortDropdown";

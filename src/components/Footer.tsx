@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Instagram, Heart } from 'lucide-react';
+import { Instagram } from 'lucide-react';
 
 const Footer = () => {
   const [email, setEmail] = useState('');

@@ -38,7 +38,7 @@ function SortDropdown({ value, onChange, options }: {
       {/* Main Trigger Button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center justify-between w-56 px-5 py-3.5 bg-gradient-to-br from-white to-gray-50 dark:from-neutral-900 dark:to-neutral-800 border-2 border-gray-200 dark:border-neutral-700 rounded-2xl text-black dark:text-white focus:outline-none focus:ring-4 focus:ring-black/20 dark:focus:ring-white/20 transition-all duration-300 hover:scale-105 hover:border-gray-300 dark:hover:border-neutral-600 hover:shadow-2xl shadow-lg group"
+        className="flex items-center justify-between w-56 px-5 py-3.5 bg-linear-to-br from-white to-gray-50 dark:from-neutral-900 dark:to-neutral-800 border-2 border-gray-200 dark:border-neutral-700 rounded-2xl text-black dark:text-white focus:outline-none focus:ring-4 focus:ring-black/20 dark:focus:ring-white/20 transition-all duration-300 hover:scale-105 hover:border-gray-300 dark:hover:border-neutral-600 hover:shadow-2xl shadow-lg group"
       >
         <div className="flex items-center gap-3">
           <div className="p-1.5 bg-black/5 dark:bg-white/10 rounded-lg group-hover:scale-110 transition-transform">
@@ -57,10 +57,10 @@ function SortDropdown({ value, onChange, options }: {
 
       {/* Dropdown Menu */}
       {isOpen && (
-        <div className="absolute top-full left-0 right-0 mt-3 bg-gradient-to-br from-white to-gray-50 dark:from-neutral-900 dark:to-neutral-800 border-2 border-gray-200 dark:border-neutral-700 rounded-2xl shadow-2xl backdrop-blur-xl z-50 overflow-hidden transform origin-top transition-all duration-300 scale-95 animate-in fade-in slide-in-from-top-2">
+        <div className="absolute top-full left-0 right-0 mt-3 bg-linear-to-br from-white to-gray-50 dark:from-neutral-900 dark:to-neutral-800 border-2 border-gray-200 dark:border-neutral-700 rounded-2xl shadow-2xl backdrop-blur-xl z-50 overflow-hidden transform origin-top transition-all duration-300 scale-95 animate-in fade-in slide-in-from-top-2">
           
           {/* Dropdown Header */}
-          <div className="px-5 py-3.5 border-b border-gray-100 dark:border-neutral-700 bg-gradient-to-r from-black/5 to-transparent dark:from-white/5">
+          <div className="px-5 py-3.5 border-b border-gray-100 dark:border-neutral-700 bg-linear-to-r from-black/5 to-transparent dark:from-white/5">
             <div className="flex items-center gap-2">
               <div className="p-1 bg-black/10 dark:bg-white/20 rounded-lg">
                 <svg className="w-4 h-4 text-black dark:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -82,7 +82,7 @@ function SortDropdown({ value, onChange, options }: {
                 }}
                 className={`w-full flex items-center gap-3 px-4 py-3.5 rounded-xl text-left transition-all duration-300 group relative overflow-hidden ${
                   value === option.id
-                    ? 'bg-gradient-to-r from-black to-gray-800 dark:from-white dark:to-gray-300 text-white dark:text-black shadow-lg transform scale-105'
+                    ? 'bg-linear-to-r from-black to-gray-800 dark:from-white dark:to-gray-300 text-white dark:text-black shadow-lg transform scale-105'
                     : 'text-gray-700 dark:text-neutral-300 hover:bg-black/5 dark:hover:bg-white/10 hover:scale-102 hover:shadow-md'
                 }`}
                 style={{
@@ -96,7 +96,7 @@ function SortDropdown({ value, onChange, options }: {
                     ? 'opacity-100' 
                     : 'opacity-0 group-hover:opacity-100'
                 }`}>
-                  <div className="absolute inset-0 bg-gradient-to-r from-black/5 to-transparent dark:from-white/5"></div>
+                  <div className="absolute inset-0 bg-linear-to-r from-black/5 to-transparent dark:from-white/5"></div>
                 </div>
 
                 {/* Selection indicator */}
@@ -137,7 +137,7 @@ function SortDropdown({ value, onChange, options }: {
           </div>
 
           {/* Dropdown Footer */}
-          <div className="px-5 py-3 border-t border-gray-100 dark:border-neutral-700 bg-gradient-to-r from-transparent to-black/5 dark:to-white/5">
+          <div className="px-5 py-3 border-t border-gray-100 dark:border-neutral-700 bg-linear-to-r from-transparent to-black/5 dark:to-white/5">
             <div className="flex items-center justify-between text-xs">
               <span className="text-gray-500 dark:text-neutral-400 font-medium">Currently selected</span>
               <span className="text-black dark:text-white font-bold">{selectedOption?.label}</span>
