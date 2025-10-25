@@ -16,7 +16,7 @@ import type { User as FirebaseUser } from "firebase/auth";
 import { auth } from "../firebase/config";
 
 // Import your logo - make sure to add logo.png to your assets
-import logo from "../assets/logo.png";
+// import logo from "../assets/logo.png";
 
 interface DropdownItem {
   name: string;
@@ -118,11 +118,12 @@ const Header = () => {
                 to="/"
                 className="block hover:scale-105 transition-transform duration-300"
               >
-                <img 
+                {/* <img 
                   src={logo} 
                   alt="W&N Streetwear" 
                   className="h-6 sm:h-7 md:h-8 w-auto dark:invert"
-                />
+                /> */}
+                <span className="text-2xl font-bold text-black dark:text-white">W&N</span>
               </Link>
             </div>
 
