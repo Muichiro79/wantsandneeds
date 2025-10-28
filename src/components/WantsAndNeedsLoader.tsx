@@ -2,13 +2,13 @@ import { motion } from 'framer-motion';
 
 const WantsAndNeedsLoader = () => {
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black">
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-white dark:bg-black">
       {/* Geometric background patterns */}
-      <div className="absolute inset-0 opacity-10">
+      <div className="absolute inset-0 opacity-10 dark:opacity-10">
         {[...Array(20)].map((_, i) => (
           <motion.div
             key={i}
-            className="absolute border border-white rounded-lg"
+            className="absolute border border-black dark:border-white rounded-lg"
             style={{
               width: Math.random() * 100 + 50,
               height: Math.random() * 100 + 50,
@@ -36,11 +36,11 @@ const WantsAndNeedsLoader = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <h1 className="text-6xl font-light text-white tracking-tight mb-2">
+          <h1 className="text-6xl font-light text-black dark:text-white tracking-tight mb-2">
             WANTS
           </h1>
-          <div className="w-32 h-px bg-linear-to-r from-transparent via-white to-transparent mx-auto my-4" />
-          <h1 className="text-6xl font-light text-white tracking-tight mt-2">
+          <div className="w-32 h-px bg-linear-to-r from-transparent via-black dark:via-white to-transparent mx-auto my-4" />
+          <h1 className="text-6xl font-light text-black dark:text-white tracking-tight mt-2">
             NEEDS
           </h1>
         </motion.div>
@@ -49,7 +49,7 @@ const WantsAndNeedsLoader = () => {
         <div className="relative w-32 h-32 mx-auto mb-12">
           {/* Outer ring */}
           <motion.div
-            className="absolute inset-0 border-4 border-white border-t-transparent rounded-full"
+            className="absolute inset-0 border-4 border-black dark:border-white border-t-transparent rounded-full"
             animate={{ rotate: 360 }}
             transition={{
               duration: 3,
@@ -60,7 +60,7 @@ const WantsAndNeedsLoader = () => {
           
           {/* Middle ring */}
           <motion.div
-            className="absolute inset-3 border-4 border-neutral-400 border-b-transparent rounded-full"
+            className="absolute inset-3 border-4 border-neutral-600 dark:border-neutral-400 border-b-transparent rounded-full"
             animate={{ rotate: -360 }}
             transition={{
               duration: 2,
@@ -71,7 +71,7 @@ const WantsAndNeedsLoader = () => {
           
           {/* Inner dot */}
           <motion.div
-            className="absolute inset-6 bg-white rounded-full"
+            className="absolute inset-6 bg-black dark:bg-white rounded-full"
             animate={{
               scale: [0.8, 1.2, 0.8],
               opacity: [0.7, 1, 0.7],
@@ -86,7 +86,7 @@ const WantsAndNeedsLoader = () => {
 
         {/* Elegant progress indicator */}
         <div className="w-64 mx-auto">
-          <div className="flex justify-between text-neutral-400 text-sm mb-2">
+          <div className="flex justify-between text-neutral-600 dark:text-neutral-400 text-sm mb-2">
             <motion.span
               animate={{ opacity: [0.5, 1, 0.5] }}
               transition={{ duration: 2, repeat: Infinity }}
@@ -102,9 +102,9 @@ const WantsAndNeedsLoader = () => {
           </div>
           
           {/* Minimal progress bar */}
-          <div className="w-full h-0.5 bg-neutral-800 rounded-full overflow-hidden">
+          <div className="w-full h-0.5 bg-neutral-300 dark:bg-neutral-800 rounded-full overflow-hidden">
             <motion.div
-              className="h-full bg-white"
+              className="h-full bg-black dark:bg-white"
               initial={{ width: "0%" }}
               animate={{ width: "100%" }}
               transition={{
@@ -121,7 +121,7 @@ const WantsAndNeedsLoader = () => {
           {[...Array(3)].map((_, i) => (
             <motion.div
               key={i}
-              className="w-2 h-2 bg-white rounded-full absolute"
+              className="w-2 h-2 bg-black dark:bg-white rounded-full absolute"
               animate={{
                 y: [0, -20, 0],
                 opacity: [0, 1, 0],
@@ -134,6 +134,38 @@ const WantsAndNeedsLoader = () => {
             />
           ))}
         </div>
+
+        {/* Additional floating elements for visual interest */}
+        <div className="absolute -bottom-10 -left-10">
+          {[...Array(3)].map((_, i) => (
+            <motion.div
+              key={i}
+              className="w-1.5 h-1.5 bg-black dark:bg-white rounded-full absolute"
+              animate={{
+                y: [0, 15, 0],
+                opacity: [0, 0.8, 0],
+              }}
+              transition={{
+                duration: 1.5,
+                repeat: Infinity,
+                delay: i * 0.4,
+              }}
+            />
+          ))}
+        </div>
+
+        {/* Subtle background glow */}
+        <motion.div
+          className="absolute inset-0 -z-10 bg-linear-to-r from-transparent via-neutral-100 dark:via-neutral-900 to-transparent"
+          animate={{
+            opacity: [0.3, 0.1, 0.3],
+          }}
+          transition={{
+            duration: 4,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+        />
       </div>
     </div>
   );

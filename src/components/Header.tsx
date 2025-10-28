@@ -7,7 +7,7 @@ import {
   User,
   LogOut,
   LogIn,
-  Search,
+  // Search,
   Heart,
 } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
@@ -183,7 +183,7 @@ const Header = () => {
               {showSearch && (
                 <div className="hidden lg:flex items-center bg-white/80 dark:bg-neutral-900/80 backdrop-blur-xl rounded-2xl border border-white/20 dark:border-gray-700/50 shadow-lg px-4 py-2">
                   <form onSubmit={handleSearch} className="flex items-center gap-2">
-                    <Search className="w-4 h-4 text-gray-500" />
+                    {/* <Search className="w-4 h-4 text-gray-500" /> */}
                     <input
                       type="text"
                       placeholder="Search products..."
@@ -210,7 +210,7 @@ const Header = () => {
                   onClick={() => setShowSearch(!showSearch)}
                   className="p-2 hover:bg-white/60 dark:hover:bg-gray-800/60 rounded-full transition-all duration-300 group"
                 >
-                  <Search className="w-5 h-5 text-gray-700 dark:text-gray-300 group-hover:scale-110 transition-transform" />
+                  {/* <Search className="w-5 h-5 text-gray-700 dark:text-gray-300 group-hover:scale-110 transition-transform" /> */}
                 </button>
 
                 {/* Wishlist - Goes to profile with wishlist tab active */}
@@ -277,7 +277,7 @@ const Header = () => {
                   onClick={() => setShowSearch(!showSearch)}
                   className="p-2 hover:bg-white/60 dark:hover:bg-gray-800/60 rounded-full transition-all group"
                 >
-                  <Search className="w-5 h-5 text-gray-700 dark:text-gray-300 group-hover:scale-110 transition-transform" />
+                  {/* <Search className="w-5 h-5 text-gray-700 dark:text-gray-300 group-hover:scale-110 transition-transform" /> */}
                 </button>
 
                 {/* Cart */}
@@ -343,7 +343,7 @@ const Header = () => {
           {showSearch && (
             <div className="lg:hidden mt-3 bg-white/80 dark:bg-neutral-900/80 backdrop-blur-xl rounded-2xl border border-white/20 dark:border-gray-700/50 shadow-lg px-4 py-3">
               <form onSubmit={handleSearch} className="flex items-center gap-2">
-                <Search className="w-4 h-4 text-gray-500" />
+                {/* <Search className="w-4 h-4 text-gray-500" /> */}
                 <input
                   type="text"
                   placeholder="Search products..."

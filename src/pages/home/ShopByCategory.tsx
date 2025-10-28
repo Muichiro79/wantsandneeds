@@ -1,23 +1,24 @@
 import { ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const ShopByCategory = () => {
   const collections = [
     { 
       name: "New Arrivals", 
       count: "24 items", 
-      link: "/collections/new",
+      link: "/shop",
       image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=500&h=500&fit=crop"
     },
     { 
       name: "Best Sellers", 
       count: "18 items", 
-      link: "/collections/bestsellers",
+      link: "/shop",
       image: "https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?w=500&h=500&fit=crop"
     },
     { 
       name: "Limited Edition", 
       count: "8 items", 
-      link: "/collections/limited", 
+      link: "/shop", 
       image: "https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=500&h=500&fit=crop"
     },
   ];
@@ -31,15 +32,16 @@ const ShopByCategory = () => {
 
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
         {collections.map((collection, index) => (
-          <a 
+          <Link 
             key={index} 
-            href={collection.link}
-            className="group relative h-80 rounded-2xl overflow-hidden bg-gray-100 dark:bg-gray-800"
+            to={collection.link}
+            className="group relative h-80 rounded-2xl overflow-hidden bg-gray-100 dark:bg-gray-800 block"
           >
             <img
               src={collection.image}
               alt={collection.name}
               className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+              loading="lazy"
             />
             
             <div className="absolute inset-0 bg-black/40 group-hover:bg-black/30 transition-all duration-300" />
@@ -53,7 +55,7 @@ const ShopByCategory = () => {
                 <ArrowRight className="w-4 h-4" />
               </div>
             </div>
-          </a>
+          </Link>
         ))}
       </div>
     </section>

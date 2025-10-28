@@ -1,6 +1,6 @@
 // src/components/home/HeroSection.tsx
 import { useState, useEffect } from 'react';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import female from '../../assets/female.png';
 import bmw from '../../assets/bmw.jpg';
 import duo from '../../assets/duo.jpg';
@@ -18,42 +18,34 @@ const HeroSection = () => {
 
   const slides: HeroSlide[] = [
     {
-      image: bmw, // Direct reference, not {bmw}
+      image: bmw,
       title: "SUMMER DROP 2024",
       subtitle: "Bold styles for the season. Heat Wave Collection",
       ctaText: "Shop Now",
-      ctaLink: "/shop"
+      ctaLink: "/shop",
     },
     {
-      image: female, // Direct reference, not {female}
+      image: female,
       title: "URBAN ESSENTIALS",
       subtitle: "Timeless pieces, modern edge. Street Ready",
       ctaText: "Explore",
-      ctaLink: "/collections"
+      ctaLink: "/shop",
     },
     {
-      image: duo, // Direct reference, not {duo}
+      image: duo,
       title: "URBAN ESSENTIALS",
       subtitle: "Timeless pieces, modern edge. Street Ready",
       ctaText: "Explore",
-      ctaLink: "/collections"
+      ctaLink: "/shop",
     },
   ];
 
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % slides.length);
-    }, 5000); // Changed from 50000 to 5000 for better UX
+    }, 5000); // 5-second interval
     return () => clearInterval(timer);
   }, [slides.length]);
-
-  const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % slides.length);
-  };
-
-  const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
-  };
 
   return (
     <section className="relative h-screen overflow-hidden bg-black">
@@ -70,7 +62,7 @@ const HeroSection = () => {
           {/* Background Image */}
           <div className="absolute inset-0">
             <img
-              src={slide.image} // Now this will be the actual image path
+              src={slide.image}
               alt={slide.title}
               className="w-full h-full object-cover"
             />
@@ -86,30 +78,16 @@ const HeroSection = () => {
               <p className="text-lg sm:text-xl md:text-2xl text-white/90 mb-10 max-w-2xl mx-auto">
                 {slide.subtitle}
               </p>
-              <a
-                href={slide.ctaLink}
+              <Link
+                to={slide.ctaLink}
                 className="inline-block px-10 py-4 bg-white text-black font-bold rounded-full hover:bg-black hover:text-white hover:scale-105 transition-all duration-300 border-2 border-white"
               >
                 {slide.ctaText}
-              </a>
+              </Link>
             </div>
           </div>
         </div>
       ))}
-
-      {/* Navigation Arrows */}
-      <button
-        onClick={prevSlide}
-        className="absolute left-4 sm:left-8 top-1/2 -translate-y-1/2 p-3 bg-white/20 backdrop-blur-sm hover:bg-white/40 rounded-full transition-all z-10 group"
-      >
-        <ChevronLeft className="w-6 h-6 text-white" />
-      </button>
-      <button
-        onClick={nextSlide}
-        className="absolute right-4 sm:right-8 top-1/2 -translate-y-1/2 p-3 bg-white/20 backdrop-blur-sm hover:bg-white/40 rounded-full transition-all z-10 group"
-      >
-        <ChevronRight className="w-6 h-6 text-white" />
-      </button>
 
       {/* Indicators */}
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-3 z-10">
