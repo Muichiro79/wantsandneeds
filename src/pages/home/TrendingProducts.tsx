@@ -5,10 +5,10 @@ import { collection, getDocs } from "firebase/firestore";
 
 interface Product {
   id: string;
-  name: string; // Changed from title to name
+  name: string;
   category: string;
   price: number;
-  images: string[]; // Changed from image to images array
+  images: string[];
   isNew?: boolean;
 }
 
@@ -21,24 +21,18 @@ const TrendingProducts = () => {
       try {
         const snapshot = await getDocs(collection(db, "products"));
         
-        // Debug: Log the first product to see actual structure
-        if (snapshot.docs.length > 0) {
-          console.log("First product data:", snapshot.docs[0].data());
-        }
-
         const data = snapshot.docs.map((doc) => {
           const docData = doc.data();
           return {
             id: doc.id,
-            name: docData.name || "Product Name", // Using name instead of title
+            name: docData.name || "Product Name",
             category: docData.category || "Uncategorized",
             price: docData.price || 0,
-            images: docData.images || [], // Using images array instead of image
+            images: docData.images || [],
             isNew: docData.isNew || false,
           } as Product;
         });
 
-        console.log("All processed products:", data);
         setProducts(data);
       } catch (err) {
         console.error("Error fetching products:", err);
@@ -49,6 +43,24 @@ const TrendingProducts = () => {
 
     fetchProducts();
   }, []);
+
+  // Skeleton loader component matching your Shop's style
+  const ProductSkeleton = () => (
+    <div className="group bg-white dark:bg-neutral-950 border border-neutral-200 dark:border-neutral-800 rounded-2xl overflow-hidden animate-pulse">
+      <div className="relative aspect-square bg-neutral-200 dark:bg-neutral-800 overflow-hidden" />
+      <div className="p-5">
+        <div className="mb-3">
+          <div className="h-4 bg-neutral-200 dark:bg-neutral-800 rounded w-1/4 mb-2" />
+          <div className="h-5 bg-neutral-200 dark:bg-neutral-800 rounded w-3/4 mb-1" />
+          <div className="h-5 bg-neutral-200 dark:bg-neutral-800 rounded w-1/2" />
+        </div>
+        <div className="flex items-center justify-between">
+          <div className="h-6 bg-neutral-200 dark:bg-neutral-800 rounded w-1/3" />
+          <div className="w-10 h-10 bg-neutral-200 dark:bg-neutral-800 rounded-full" />
+        </div>
+      </div>
+    </div>
+  );
 
   return (
     <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
@@ -67,8 +79,10 @@ const TrendingProducts = () => {
       </div>
 
       {loading ? (
-        <div className="flex justify-center items-center py-12">
-          <p className="text-center text-gray-500 dark:text-gray-400">Loading trending products...</p>
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+          {Array.from({ length: 8 }).map((_, index) => (
+            <ProductSkeleton key={index} />
+          ))}
         </div>
       ) : (
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
@@ -80,11 +94,10 @@ const TrendingProducts = () => {
               {/* Product Image Container */}
               <div className="relative aspect-square bg-neutral-100 dark:bg-neutral-900 overflow-hidden">
                 <img
-                  src={product.images[0] || "/placeholder-image.jpg"} // Using first image from images array
-                  alt={product.name} // Using name instead of title
+                  src={product.images[0] || "/placeholder-image.jpg"}
+                  alt={product.name}
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                   onError={(e) => {
-                    // Fallback if image fails to load
                     e.currentTarget.src = "https://images.unsplash.com/photo-1560769629-975ec94e6a86?w=500&h=500&fit=crop";
                   }}
                 />
@@ -116,7 +129,7 @@ const TrendingProducts = () => {
                     {product.category}
                   </p>
                   <h3 className="font-bold text-lg dark:text-white line-clamp-2 group-hover:text-neutral-600 dark:group-hover:text-neutral-300 transition-colors">
-                    {product.name} {/* Using name instead of title */}
+                    {product.name}
                   </h3>
                 </div>
                 
