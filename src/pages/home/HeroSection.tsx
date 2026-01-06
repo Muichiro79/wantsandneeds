@@ -1,12 +1,9 @@
 // src/components/home/HeroSection.tsx
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import female from '../../assets/female.png';
-import bmw from '../../assets/bmw.jpg';
-import duo from '../../assets/duo.jpg';
 
 interface HeroSlide {
-  image: string;
+  bgColor: string;
   title: string;
   subtitle: string;
   ctaText: string;
@@ -18,24 +15,24 @@ const HeroSection = () => {
 
   const slides: HeroSlide[] = [
     {
-      image: bmw,
+      bgColor: 'bg-red-600',
       title: "SUMMER DROP 2024",
       subtitle: "Bold styles for the season. Heat Wave Collection",
       ctaText: "Shop Now",
       ctaLink: "/shop",
     },
     {
-      image: female,
+      bgColor: 'bg-blue-600',
       title: "URBAN ESSENTIALS",
       subtitle: "Timeless pieces, modern edge. Street Ready",
       ctaText: "Explore",
       ctaLink: "/shop",
     },
     {
-      image: duo,
-      title: "URBAN ESSENTIALS",
-      subtitle: "Timeless pieces, modern edge. Street Ready",
-      ctaText: "Explore",
+      bgColor: 'bg-green-600',
+      title: "FRESH STYLES",
+      subtitle: "Vibrant colors, unmatched comfort.",
+      ctaText: "Discover",
       ctaLink: "/shop",
     },
   ];
@@ -48,43 +45,34 @@ const HeroSection = () => {
   }, [slides.length]);
 
   return (
-    <section className="relative h-screen overflow-hidden bg-black">
+    <section className="relative h-screen overflow-hidden">
       {/* Slides */}
       {slides.map((slide, index) => (
         <div
           key={index}
-          className={`absolute inset-0 transition-all duration-1000 ${
+          className={`absolute inset-0 transition-all duration-1000 flex items-center justify-center text-center px-4 ${
             index === currentSlide
               ? 'opacity-100 scale-100'
               : 'opacity-0 scale-105'
-          }`}
+          } ${slide.bgColor}`}
         >
-          {/* Background Image */}
-          <div className="absolute inset-0">
-            <img
-              src={slide.image}
-              alt={slide.title}
-              className="w-full h-full object-cover"
-            />
-            <div className="absolute inset-0 bg-black/40" />
-          </div>
+          {/* Overlay for dim effect */}
+          <div className="absolute inset-0 bg-black/20" />
 
           {/* Content */}
-          <div className="relative h-full flex items-center justify-center text-center px-4">
-            <div className="max-w-5xl">
-              <h1 className="text-5xl sm:text-6xl md:text-8xl font-black text-white mb-6 tracking-tight leading-tight animate-fade-in">
-                {slide.title}
-              </h1>
-              <p className="text-lg sm:text-xl md:text-2xl text-white/90 mb-10 max-w-2xl mx-auto">
-                {slide.subtitle}
-              </p>
-              <Link
-                to={slide.ctaLink}
-                className="inline-block px-10 py-4 bg-white text-black font-bold rounded-full hover:bg-black hover:text-white hover:scale-105 transition-all duration-300 border-2 border-white"
-              >
-                {slide.ctaText}
-              </Link>
-            </div>
+          <div className="relative max-w-5xl">
+            <h1 className="text-5xl sm:text-6xl md:text-8xl font-black text-white mb-6 tracking-tight leading-tight animate-fade-in">
+              {slide.title}
+            </h1>
+            <p className="text-lg sm:text-xl md:text-2xl text-white/90 mb-10 max-w-2xl mx-auto">
+              {slide.subtitle}
+            </p>
+            <Link
+              to={slide.ctaLink}
+              className="inline-block px-10 py-4 bg-white text-black font-bold rounded-full hover:bg-black hover:text-white hover:scale-105 transition-all duration-300 border-2 border-white"
+            >
+              {slide.ctaText}
+            </Link>
           </div>
         </div>
       ))}
